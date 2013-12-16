@@ -21,12 +21,7 @@ if __name__ == '__main__':
     app = tornado.web.Application(
         handlers=[(r'/', IndexHandler),
         (r'/(.*)', tornado.web.StaticFileHandler, 
-            {'path': os.path.dirname(__file__)})
-        ], 
-        # if you want to use any templates, uncomment the below line
-        # create a new directory called templates and move your templates in that
-        # template_path=os.path.join(os.path.dirname(__file__), "templates"), 
-        #static_path = os.path.dirname(__file__),#=os.path.join(os.path.dirname(__file__), "static"), 
+            {'path': os.path.dirname(__file__)})],
         debug=True
         )
     # set debug to False when running on production/Heroku!
