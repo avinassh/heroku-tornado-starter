@@ -19,11 +19,17 @@ class IndexHandler(tornado.web.RequestHandler):
 if __name__ == '__main__': 
     tornado.options.parse_command_line() 
     app = tornado.web.Application(
-        handlers=[(r'/', IndexHandler)], 
+        handlers=[(r'/', IndexHandler),
+        (r'/(.*)', tornado.web.StaticFileHandler, 
+            {'path': os.path.dirname(__file__)}), 
+        (r'/static/(.*)', tornado.web.StaticFileHandler, 
+            {'path': os.path.join(os.path.dirname(__file__), "static")})
+
+        ], 
         # if you want to use any templates, uncomment the below line
         # create a new directory called templates and move your templates in that
         # template_path=os.path.join(os.path.dirname(__file__), "templates"), 
-        static_path=os.path.join(os.path.dirname(__file__), "static"), 
+        #static_path = os.path.dirname(__file__),#=os.path.join(os.path.dirname(__file__), "static"), 
         debug=True
         )
     # set debug to False when running on production/Heroku!
