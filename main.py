@@ -21,10 +21,7 @@ if __name__ == '__main__':
     app = tornado.web.Application(
         handlers=[(r'/', IndexHandler),
         (r'/(.*)', tornado.web.StaticFileHandler, 
-            {'path': os.path.dirname(__file__)}), 
-        (r'/static/(.*)', tornado.web.StaticFileHandler, 
-            {'path': os.path.join(os.path.dirname(__file__), "static")})
-
+            {'path': os.path.dirname(__file__)})
         ], 
         # if you want to use any templates, uncomment the below line
         # create a new directory called templates and move your templates in that
