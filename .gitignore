@@ -37,3 +37,6 @@ nosetests.xml
 
 # OS Files
 .DS_Store
+
+# vritual-env
+venv/
