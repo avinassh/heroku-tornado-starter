@@ -14,7 +14,7 @@ define("port", default=5000, help="run on the given port", type=int)
 
 class IndexHandler(tornado.web.RequestHandler): 
     def get(self):
-        self.render('static/index.html')
+        self.render('index.html')
 
 if __name__ == '__main__': 
     tornado.options.parse_command_line() 
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         # if you want to use any templates, uncomment the below line
         # create a new directory called templates and move your templates in that
         # template_path=os.path.join(os.path.dirname(__file__), "templates"), 
-        static_path=os.path.join(os.path.dirname(__file__), "static"), 
+        #static_path=os.path.join(os.path.dirname(__file__), "static"), 
         debug=True
         )
     # set debug to False when running on production/Heroku!
